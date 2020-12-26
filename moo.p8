@@ -1,17 +1,31 @@
 pico-8 cartridge // http://www.pico-8.com
 version 22
 __lua__
+--data
+
+--main functions
 
 function _init()
+ money=0
+ _update=gameupdate
+ _draw=gamedraw
 end
 
-function _update()
- if btnp(5) then printh("moo") end
- if btnp(0) then printh("muh") end
+function gameupdate()
+ if btnp(4) then
+  click()
+ end
 end
 
-function _draw()
+function click()
+ money+=1
+end
 
+function gamedraw()
+ cls()
+
+ print("press x to moo",2,2)
+ print("mooney: "..tostr(money),2,8)
 end
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
